@@ -56,3 +56,4 @@ function displayStrength(score) {
   strengthText.textContent = `Password Strength Score: ${score}/5`;
 }
   
+//try
