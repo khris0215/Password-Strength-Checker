@@ -1,16 +1,15 @@
 .titleText {
-  margin: 15vh auto 0 auto;
-  padding: 20px 40px;
+  margin: clamp(24px, 12vh, 100px) auto 0;
+  padding: clamp(16px, 4vw, 32px) clamp(24px, 6vw, 48px);
   text-align: center;
-  font-size: 40px;
+  font-size: clamp(28px, 6vw, 40px);
   font-weight: 600;
   color: #333;
   background-color: white;
-  width: 58%;
-  max-width: 600px;
+  width: min(90vw, 600px);
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .titleText:hover {
@@ -19,15 +18,20 @@
 }
 
 .input {
-  text-align: center;
-  margin-top: 50px;
+  width: min(90vw, 480px);
+  margin: clamp(24px, 8vh, 60px) auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 4vw, 24px);
 }
 
 .inputBox {
-  width: 350px;
-  height: 45px;
+  width: 100%;
+  max-width: 480px;
+  min-height: 45px;
   padding: 12px 20px;
-  font-size: 18px;
+  font-size: clamp(16px, 3.5vw, 18px);
   border: 2px solid #ddd;
   border-radius: 12px;
   outline: none;
@@ -46,20 +50,23 @@
 }
 
 .output {
-  margin-top: 25px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 26px;
+  font-size: clamp(18px, 4.5vw, 26px);
   font-weight: 600;
   color: #333;
-  padding: 18px 35px;
+  padding: clamp(14px, 3.5vw, 20px) clamp(24px, 6vw, 35px);
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  display: block; /* Changed from inline-block */
-  width: fit-content; /* Makes it only as wide as the text */
+  display: block;
+  width: fit-content;
+  max-width: min(90vw, 480px);
   transition: all 0.4s ease;
   letter-spacing: 0.5px;
+  text-align: center;
+  word-break: break-word;
 }
 
 .output:empty {
@@ -67,11 +74,17 @@
 }
 
 body {
+  margin: 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(24px, 8vw, 80px) clamp(16px, 6vw, 80px);
+  box-sizing: border-box;
 }
 
-/* Shake animation for input box */
+
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
@@ -82,7 +95,7 @@ body {
   animation: shake 0.5s;
 }
 
-/* Explosion effect */
+
 .explosion {
   position: fixed;
   top: 50%;
@@ -107,5 +120,25 @@ body {
     width: 500px;
     height: 500px;
     opacity: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-top: 10vh;
+  }
+
+  .input {
+    width: min(70vw, 520px);
+  }
+}
+
+@media (max-width: 480px) {
+  .titleText {
+    border-radius: 16px;
+  }
+
+  .output {
+    border-radius: 12px;
   }
 }
