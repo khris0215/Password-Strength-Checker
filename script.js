@@ -4,7 +4,7 @@ const veryWeak = new Audio('sounds/veryweak.mp3');
 const weak = new Audio('sounds/weak.mp3');
 const moderate = new Audio('sounds/moderate.mp3');
 const strong = new Audio('sounds/strong.mp3');
-const veryStrong = new Audio('sounds/verystrong.mp3');
+const chipi = new Audio('sounds/chipi.mp3');
 
 passwordInput.addEventListener('input', function() {
   const password = passwordInput.value;
@@ -114,8 +114,8 @@ function updateDisplay(score) {
       break;
     case 5:
       strength = 'Very Strong 🌬️🥇';
-      veryStrong.currentTime = 0;
-      veryStrong.play();
+      chipi.currentTime = 0;
+      chipi.play();
 
       setTimeout(() => {
         explode();
